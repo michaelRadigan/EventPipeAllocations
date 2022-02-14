@@ -1,0 +1,4 @@
+Some or all of the blog pots in this series could be useful:
+https://medium.com/criteo-engineering/build-your-own-net-memory-profiler-in-c-allocations-1-2-9c9f0c86cefd
+
+Mirosoft EventPipe docs: https://docs.microsoft.com/en-us/dotnet/core/diagnostics/eventpipe
