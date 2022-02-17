@@ -43,9 +43,13 @@ namespace EventPipeAllocations
             // Ok, so this is us going via an intermediate file for a small period of time
             var tempNetTraceFilename = Path.GetRandomFileName() + ".nettrace";
             var tempEtlxFilename = "";
+            
+            // Ok, so rather than a real file, can I just write to a memory mapped file?
+            // (Maybe this just gets huge though?)
+            // Probably not worth the overhead as it doesn't play nicely with TraceLog.CreateFromEventPipeDataFile
 
             // Let's grab just a bit of data for now
-            var duration = TimeSpan.FromSeconds(5);
+            var duration = TimeSpan.FromSeconds(300);
 
             try
             {
@@ -66,7 +70,6 @@ namespace EventPipeAllocations
                     }
                     await copyTask;
                 }
-                
                 
                 // using the generated trace file, symbolocate and compute stacks.
                 tempEtlxFilename = TraceLog.CreateFromEventPipeDataFile(tempNetTraceFilename);
@@ -147,7 +150,6 @@ namespace EventPipeAllocations
         // Example of how to grab method that allocated:
         // stackSource.GetFrameName(stackSource.GetFrameIndex(stackSource.GetCallerIndex(stackIndex)), verboseName: false)
         // Which returns e.g.: "AllocationCounter!AllocationCounter.Program.Allocate10K()"
-
         private static void PrintStack(int threadId, StackSourceSample stackSourceSample, StackSource stackSource)
         {
             Console.WriteLine($"Thread (0x{threadId:X}):");

@@ -18,7 +18,7 @@ namespace EventPipeAllocations
             Task.Factory.StartNew(() => TraceLogStackTracePrinter.PrintBasicStackTraces(currentProcessId).Result);
 
             var i = 0;
-            while (i < 3)
+            while (i < 100)
             {
                 Allocate10K();
                 Allocate5K();
