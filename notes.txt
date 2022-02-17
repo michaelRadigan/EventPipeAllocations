@@ -2,3 +2,9 @@ Some or all of the blog pots in this series could be useful:
 https://medium.com/criteo-engineering/build-your-own-net-memory-profiler-in-c-allocations-1-2-9c9f0c86cefd
 
 Mirosoft EventPipe docs: https://docs.microsoft.com/en-us/dotnet/core/diagnostics/eventpipe
+
+https://docs.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-stack
+
+We can derfinitely crib from here: https://github.com/dotnet/diagnostics/blob/c13a550fd8135e031678015743557ea2a543403f/src/Tools/dotnet-stack/ReportCommand.cs
+
+https://github.com/microsoft/perfview/blob/main/src/PerfView/UserCommands.cs
